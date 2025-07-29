@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroService | Ремонт электрооборудования</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+  <!-- Шапка (без изменений) -->
+  <header class="header">
+  <div class="container">
+    <div class="logo">
+      <span>Electro<span>Service</span></span>
+    </div>
+    
+    <nav class="nav">
+      <a href="index.html" class="active">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="price.html">Цены</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="order.html">Оставить заявку</a>
+      <a href="account.html">Личный кабинет</a>
+    </nav>
+    
+    <div class="auth-buttons">
+      <button id="loginBtn" class="btn btn-outline">Войти</button>
+      <button id="registerBtn" class="btn btn-primary">Регистрация</button>
+    </div>
+  </div>
+</header>
+
+<!-- Баннер страницы с фоновой картинкой -->
+<section class="hero">
+  <div class="container">
+    <h1>Наши услуги</h1>
+    <p>Полный спектр ремонтных работ для любого оборудования</p>
+  </div>
+</section>
+
+  <!-- Услуги (без изменений) -->
+  <section class="services">
+    <div class="container">
+      <h2>Наши услуги</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <a href="services.html"><img src="images/service-1.png" alt="Ремонт бытовой техники"></a>
+          <h3>Бытовая техника</h3>
+          <p>Холодильники, стиральные машины, микроволновки</p>
+        </div>
+        <div class="service-card">
+          <a href="services.html"><img src="images/service-2.png" alt="Ремонт электроинструмента"></a>
+          <h3>Электроинструмент</h3>
+          <p>Дрели, перфораторы, болгарки</p>
+        </div>
+        <div class="service-card">
+          <a href="services.html"><img src="images/service-3.png" alt="Ремонт промышленного оборудования"></a>
+          <h3>Промышленное оборудование</h3>
+          <p>Двигатели, трансформаторы, генераторы</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О компании (изменён на строку) -->
+  <section class="about">
+    <div class="container">
+      <h2>Почему выбирают нас?</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <h3>Опыт 10+ лет</h3>
+          <p>Работаем с 2013 года</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⌛</div>
+          <h3>Срочный выезд</h3>
+          <p>Мастер приедет за 60 минут</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔧</div>
+          <h3>Оригинальные запчасти</h3>
+          <p>Только проверенные поставщики</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал (изменён) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2025 ElectroService. Все права защищены.</p>
+        <div class="social-links">
+          <a href="#"><img src="images/vk-icon.jpg" alt="VK"></a>
+          <a href="#"><img src="images/tg-icon.jpg" alt="Telegram"></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 12px;">
+  <a href="admin.html" style="color: #666;">Административный доступ</a>
+</div>
+  </footer>
+
+<!-- Модальное окно входа -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Вход в аккаунт</h2>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="loginEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="loginPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="loginPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div class="modal" id="registerModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Регистрация</h2>
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <input type="text" id="regName" name="name" placeholder="Ваше имя" required minlength="2">
+        <div class="error-message" id="regName-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" id="regEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="regEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="regPhone" name="phone" placeholder="Телефон" required>
+        <div class="error-message" id="regPhone-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="regPassword-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+        <div class="error-message" id="regConfirmPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form-fake.js"></script>
+</body>
+</html>

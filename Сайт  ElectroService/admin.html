@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель администратора | ElectroService</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+  <!-- Модальное окно входа для администратора -->
+  <div class="modal" id="adminLoginModal" style="display: flex;">
+    <div class="modal-content">
+      <span class="close" id="adminCloseBtn">&times;</span>
+      <h2>Вход для администратора</h2>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <input type="text" id="adminLogin" name="login" placeholder="Логин" required>
+          <div class="error-message" id="adminLogin-error"></div>
+        </div>
+        <div class="form-group">
+          <input type="password" id="adminPassword" name="password" placeholder="Пароль" required>
+          <div class="error-message" id="adminPassword-error"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Основной контент (показывается после входа) -->
+  <div id="adminContent" style="display: none;">
+    <!-- Шапка -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <span>Electro<span>Service</span> <small>Админ-панель</small></span>
+        </div>
+        
+        <nav class="nav">
+          <a href="index.html">На главную</a>
+          <a href="#" id="refreshBtn">Обновить данные</a>
+        </nav>
+        
+        <div class="auth-buttons">
+          <button id="adminLogoutBtn" class="btn btn-outline">Выйти</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="admin-page">
+      <section class="admin-section">
+        <div class="container">
+          <h1>Панель администратора</h1>
+          
+          <div class="admin-controls">
+            <div class="stats-card">
+              <h3>Всего заказов</h3>
+              <div class="stat-value" id="totalOrders">0</div>
+            </div>
+            <div class="stats-card">
+              <h3>Новых сегодня</h3>
+              <div class="stat-value" id="todayOrders">0</div>
+            </div>
+            <div class="stats-card">
+              <h3>В работе</h3>
+              <div class="stat-value" id="inProgressOrders">0</div>
+            </div>
+          </div>
+          
+          <div class="orders-table-container">
+            <div class="table-header">
+              <span>№ Заказа</span>
+              <span>Клиент</span>
+              <span>Телефон</span>
+              <span>Устройство</span>
+              <span>Проблема</span>
+              <span>Дата</span>
+              <span>Статус</span>
+              <span>Действия</span>
+            </div>
+            
+            <div class="table-body" id="ordersTableBody">
+              <!-- Заказы будут загружены через JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>© 2024 ElectroService. Административная панель</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

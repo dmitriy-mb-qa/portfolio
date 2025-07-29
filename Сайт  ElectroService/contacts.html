@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты | ElectroService</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+  <!-- Подключение API Яндекс.Карт -->
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header">
+  <div class="container">
+    <div class="logo">
+      <span>Electro<span>Service</span></span>
+    </div>
+    
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="price.html">Цены</a>
+      <a href="contacts.html" class="active">Контакты</a>
+      <a href="order.html">Оставить заявку</a>
+      <a href="account.html">Личный кабинет</a>
+    </nav>
+    
+    <div class="auth-buttons">
+      <button id="loginBtn" class="btn btn-outline">Войти</button>
+      <button id="registerBtn" class="btn btn-primary">Регистрация</button>
+    </div>
+  </div>
+</header>
+
+  <!-- Основной контент -->
+  <main class="contacts-page">
+    <!-- Блок с картой -->
+    <section class="map-section">
+      <div class="container">
+        <h1>Как нас найти</h1>
+        <div id="map" style="width: 100%; height: 400px; border-radius: 10px; margin-top: 30px;"></div>
+      </div>
+    </section>
+
+    <!-- Контактная информация -->
+    <section class="contact-info">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Адрес</h3>
+            <p>г. Красноярск, ул. Проспект Красноярский рабочий, д. 156</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">🕒</div>
+            <h3>Часы работы</h3>
+            <p><strong>Пн-Пт:</strong> 9:00 - 20:00</p>
+            <p><strong>Сб:</strong> 10:00 - 18:00</p>
+            <p><strong>Вс:</strong> выходной</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Телефоны</h3>
+            <p><a href="tel:+74951234567">+7 (XXX) XXX-XX-XX</a></p>
+            <p><a href="tel:+79161234567">+7 (XXX) XXX-XX-XX</a> (WhatsApp)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="form-wrapper">
+          <div class="form-text">
+            <h2>Остались вопросы?</h2>
+            <p>Заполните форму и наш менеджер свяжется с вами в течение 15 минут</p>
+            <div class="additional-contacts">
+              <p>Или напишите нам напрямую:</p>
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <span>VKontakte</span>
+                </a>
+                <a href="#" class="social-link">
+                  <span>Telegram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+<form class="contact-form" id="contactForm" novalidate>
+  <div class="form-group">
+    <input type="text" id="name" name="name" placeholder="Ваше имя" required minlength="2">
+    <div class="error-message" id="name-error"></div>
+  </div>
+  <div class="form-group">
+    <input type="tel" id="phone" name="phone" placeholder="Телефон" required pattern="[\+]\d{1}\s?[\(]\d{3}[\)]\s?\d{3}[\-]\d{2}[\-]\d{2}">
+    <div class="error-message" id="phone-error"></div>
+  </div>
+  <div class="form-group">
+    <textarea id="message" name="message" placeholder="Ваш вопрос" rows="4" required minlength="10"></textarea>
+    <div class="error-message" id="message-error"></div>
+  </div>
+  <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2024 ElectroService. Все права защищены.</p>
+        <div class="social-links">
+          <a href="#"><img src="images/vk-icon.jpg" alt="VK"></a>
+          <a href="#"><img src="images/tg-icon.jpg" alt="Telegram"></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 12px;">
+  <a href="admin.html" style="color: #666;">Административный доступ</a>
+</div>
+  </footer>
+
+<!-- Модальное окно входа -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Вход в аккаунт</h2>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="loginEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="loginPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="loginPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div class="modal" id="registerModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Регистрация</h2>
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <input type="text" id="regName" name="name" placeholder="Ваше имя" required minlength="2">
+        <div class="error-message" id="regName-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" id="regEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="regEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="regPhone" name="phone" placeholder="Телефон" required>
+        <div class="error-message" id="regPhone-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="regPassword-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+        <div class="error-message" id="regConfirmPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+
+    <script src="js/auth.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form-fake.js"></script>
+  <script src="js/form-validation.js"></script>
+</body>
+</html>

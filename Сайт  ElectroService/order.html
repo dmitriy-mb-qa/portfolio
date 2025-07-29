@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оставить заявку | ElectroService</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <span>Electro<span>Service</span></span>
+      </div>
+      
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="services.html">Услуги</a>
+        <a href="price.html">Цены</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="order.html" class="active">Оставить заявку</a>
+        <a href="account.html">Личный кабинет</a>
+      </nav>
+      
+      <div class="auth-buttons">
+        <button id="loginBtn" class="btn btn-outline">Войти</button>
+        <button id="registerBtn" class="btn btn-primary">Регистрация</button>
+      </div>
+    </div>
+    
+  </header>
+
+  <!-- Основной контент -->
+  <main class="order-page">
+    <section class="order-section">
+      <div class="container">
+        <h1>Оставить заявку на ремонт</h1>
+        <p>Заполните форму и наш специалист свяжется с вами в течение 15 минут</p>
+        
+        <form class="order-form" id="orderForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Ваше имя*</label>
+              <input type="text" id="name" name="name" required minlength="2">
+              <div class="error-message" id="name-error"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Телефон*</label>
+              <input type="tel" id="phone" name="phone" required 
+       placeholder="+7 (999) 123-45-67"
+       pattern="[\+]\d{1}\s?[\(]?\d{3}[\)]?\s?\d{3}[\-]?\d{2}[\-]?\d{2}">
+              <div class="error-message" id="phone-error"></div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="device">Тип оборудования*</label>
+            <select id="device" name="device" required>
+              <option value="">Выберите тип оборудования</option>
+              <option value="household">Бытовая техника</option>
+              <option value="tools">Электроинструмент</option>
+              <option value="industrial">Промышленное оборудование</option>
+              <option value="other">Другое</option>
+            </select>
+            <div class="error-message" id="device-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="problem">Опишите проблему*</label>
+            <textarea id="problem" name="problem" rows="4" required minlength="10"></textarea>
+            <div class="error-message" id="problem-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Адрес (если нужен выезд мастера)</label>
+            <input type="text" id="address" name="address">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2024 ElectroService. Все права защищены.</p>
+        <div class="social-links">
+          <a href="#"><img src="images/vk-icon.jpg" alt="VK"></a>
+          <a href="#"><img src="images/tg-icon.jpg" alt="Telegram"></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 12px;">
+  <a href="admin.html" style="color: #666;">Административный доступ</a>
+</div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form-validation.js"></script>
+    <script>
+    // Заполняем данные пользователя из localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        document.getElementById('name').value = user.name;
+        document.getElementById('phone').value = user.phone;
+      }
+    });
+  </script>
+</body>
+</html>

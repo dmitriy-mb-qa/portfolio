@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цены на ремонт | ElectroService</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header">
+  <div class="container">
+    <div class="logo">
+      <span>Electro<span>Service</span></span>
+    </div>
+    
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="price.html" class="active">Цены</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="order.html">Оставить заявку</a>
+      <a href="account.html">Личный кабинет</a>
+    </nav>
+    
+    <div class="auth-buttons">
+      <button id="loginBtn" class="btn btn-outline">Войти</button>
+      <button id="registerBtn" class="btn btn-primary">Регистрация</button>
+    </div>
+  </div>
+</header>
+
+  <!-- Баннер с калькулятором -->
+  <section class="pricing-banner">
+    <div class="container">
+      <div class="pricing-header">
+        <h1>Прозрачное ценообразование</h1>
+        <p>Рассчитайте примерную стоимость ремонта онлайн</p>
+      </div>
+      
+      <div class="calculator">
+        <div class="calculator-form">
+          <div class="form-group">
+            <label for="device-type">Тип устройства:</label>
+            <select id="device-type">
+              <option value="0">Выберите из списка</option>
+              <option value="household">Бытовая техника</option>
+              <option value="tools">Электроинструмент</option>
+              <option value="industrial">Промышленное оборудование</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="problem-type">Тип неисправности:</label>
+            <select id="problem-type">
+              <option value="0">Выберите из списка</option>
+              <option value="simple">Простая (чистка, диагностика)</option>
+              <option value="medium">Средняя (замена деталей)</option>
+              <option value="complex">Сложная (перемотка, пайка плат)</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-primary" id="calculateBtn">Рассчитать</button>
+        </div>
+        
+        <div class="calculator-result" id="calculatorResult">
+          <div class="result-placeholder">
+            <strong><span style="color: green;">Калькулятор</span><br><br> 
+            <p>Здесь будет расчет стоимости</p></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Таблица цен -->
+  <section class="price-tables">
+    <div class="container">
+      <div class="price-tabs">
+        <button class="price-tab active" data-tab="household">Бытовая техника</button>
+        <button class="price-tab" data-tab="tools">Инструменты</button>
+        <button class="price-tab" data-tab="industrial">Пром. оборудование</button>
+      </div>
+      
+      <div class="price-table active" id="household">
+        <div class="table-header">
+          <span>Услуга</span>
+          <span>Стоимость</span>
+        </div>
+        <div class="table-row">
+          <span>Диагностика</span>
+          <span>Бесплатно</span>
+        </div>
+        <div class="table-row">
+          <span>Ремонт холодильника</span>
+          <span>от 2000 ₽</span>
+        </div>
+        <div class="table-row">
+          <span>Ремонт стиральной машины</span>
+          <span>от 1500 ₽</span>
+        </div>
+        <div class="table-row">
+          <span>Ремонт микроволновки</span>
+          <span>от 1000 ₽</span>
+        </div>
+        <div class="table-row">
+          <span>Чистка системы</span>
+          <span>от 800 ₽</span>
+        </div>
+      </div>
+      
+      <!-- Аналогичные таблицы для других категорий -->
+      <!-- Таблица цен для Инструментов -->
+<div class="price-table" id="tools" style="display:none">
+  <div class="table-header">
+    <span>Услуга</span>
+    <span>Стоимость</span>
+  </div>
+  <div class="table-row">
+    <span>Диагностика</span>
+    <span>Бесплатно</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт дрели/шуруповёрта</span>
+    <span>от 1200 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Замена двигателя</span>
+    <span>от 2500 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт перфоратора</span>
+    <span>от 1800 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт ударного механизма</span>
+    <span>от 2200 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт болгарки</span>
+    <span>от 1500 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Замена щёток</span>
+    <span>от 500 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт кнопки включения</span>
+    <span>от 800 ₽</span>
+  </div>
+</div>
+      </div>
+      
+<!-- Таблица цен для Пром. оборудования -->
+<div class="price-table" id="industrial" style="display:none">
+  <div class="table-header">
+    <span>Услуга</span>
+    <span>Стоимость</span>
+  </div>
+  <div class="table-row">
+    <span>Диагностика</span>
+    <span>от 1000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт электродвигателя (до 5 кВт)</span>
+    <span>от 5000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт электродвигателя (5-15 кВт)</span>
+    <span>от 8000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Перемотка статора</span>
+    <span>от 3000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Балансировка ротора</span>
+    <span>от 2500 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт трансформатора (до 10 кВА)</span>
+    <span>от 6000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Ремонт генератора</span>
+    <span>от 7000 ₽</span>
+  </div>
+  <div class="table-row">
+    <span>Замена подшипников</span>
+    <span>от 2000 ₽</span>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок с гарантиями -->
+  <section class="price-guarantees">
+    <div class="container">
+      <h2>Наши гарантии</h2>
+      <div class="guarantees-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-icon">🔧</div>
+          <h3>Гарантия до 2 лет</h3>
+          <p>На все виды ремонтных работ</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon">💵</div>
+          <h3>Возврат денег</h3>
+          <p>Если не смогли устранить проблему</p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon">📝</div>
+          <h3>Официальный договор</h3>
+          <p>Все обязательства закреплены документально</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2024 ElectroService. Все права защищены.</p>
+        <div class="social-links">
+          <a href="#"><img src="images/vk-icon.jpg" alt="VK"></a>
+          <a href="#"><img src="images/tg-icon.jpg" alt="Telegram"></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 12px;">
+  <a href="admin.html" style="color: #666;">Административный доступ</a>
+</div>
+  </footer>
+
+<!-- Модальное окно входа -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Вход в аккаунт</h2>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="loginEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="loginPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="loginPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div class="modal" id="registerModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Регистрация</h2>
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <input type="text" id="regName" name="name" placeholder="Ваше имя" required minlength="2">
+        <div class="error-message" id="regName-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" id="regEmail" name="email" placeholder="Email" required>
+        <div class="error-message" id="regEmail-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="regPhone" name="phone" placeholder="Телефон" required>
+        <div class="error-message" id="regPhone-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regPassword" name="password" placeholder="Пароль" required minlength="6">
+        <div class="error-message" id="regPassword-error"></div>
+      </div>
+      <div class="form-group">
+        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+        <div class="error-message" id="regConfirmPassword-error"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+
+    <script src="js/auth.js"></script>
+  <script src="js/price-calculator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
