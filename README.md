@@ -2,7 +2,8 @@
 **Тестировщик**  
 
 📞 +7 (913) 187-59-78 · ✉ dmitriydev2725@gmail.com  
-🔗 [GitHub](https://github.com/dmitriy-mb-qa)  
+🔗 [GitHub](https://github.com/dmitriy-mb-qa) - https://github.com/dmitriy-mb-qa?tab=repositories
+
 📍 Красноярск, готов к удалённой работе  
  ТГ: @Twenty_four_vagabonds
 ---
